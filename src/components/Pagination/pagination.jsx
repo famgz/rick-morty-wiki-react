@@ -1,26 +1,53 @@
 import React from 'react'
-import styles from './Pagination.module.scss'
+// import styles from './Pagination.module.scss'
+import ReactPaginate from 'react-paginate'
+
+const Pagination = ({ info, pageNumber, setPageNumber }) => {
+
+    return (
+        <ReactPaginate
+            className="pagination justify-content-center gap-4 my-4"
+            forcePage={pageNumber===1 ? 0 : pageNumber-1}
+            previousLabel="Prev"
+            nextLabel="Next"
+            previousLinkClassName="btn btn-primary"
+            nextLinkClassName="btn btn-primary"
+            pageClassName='page-item'
+            pageLinkClassName='page-link'
+            activeClassName='active'
+            disabledLinkClassName='btn btn-secondary'
+            onPageChange={(data) => { setPageNumber(data.selected + 1) }}
+            pageCount={info?.pages}
+        />
+    )
+}
+
+export default Pagination
+
+
+/*
+//Without pagination module
 
 const Pagination = ({ pageNumber, setPageNumber, pages }) => {
 
-    let prev = () => {
-        if(pageNumber === 1) return
+    const prev = () => {
+        if (pageNumber === 1) return
         setPageNumber(x => x > 1 ? x - 1 : x)
     }
 
-    let next = () => {
-        if(pageNumber >= pages) return
+    const next = () => {
+        if (pageNumber >= pages) return
         setPageNumber(x => x + 1)
     }
 
-    let prevColor = () => {
+    const prevColor = () => {
         let style = pageNumber === 1 ? styles['btn-deactivate'] : 'btn-primary'
         return style
 
     }
 
-    let nextColor = () => {
-        let style = pageNumber >= pages ? styles['btn-deactivate'] : 'btn-primary' 
+    const nextColor = () => {
+        let style = pageNumber >= pages ? styles['btn-deactivate'] : 'btn-primary'
         return style
     }
 
@@ -33,3 +60,4 @@ const Pagination = ({ pageNumber, setPageNumber, pages }) => {
 }
 
 export default Pagination
+*/

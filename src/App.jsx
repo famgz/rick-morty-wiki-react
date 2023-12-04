@@ -11,10 +11,8 @@ function App() {
 
   let [pageNumber, setPageNumber] = useState(1)  // (1) is the default value
   let [search, setSearch] = useState('')
-  let [fetchData, updateFetchData] = useState([])
-  let { info, results } = fetchData // Destructure
-  // let { count, pages, next, prev } = info
-  let pages = 42
+  let [fetchedData, updateFetchedData] = useState([])
+  let { info, results } = fetchedData // Destructure
 
   let apiUrl = `https://rickandmortyapi.com/api/character?page=${pageNumber}&name=${search}`
 
@@ -22,7 +20,7 @@ function App() {
     // IIFE -> Immediately Invoked Function Expression
     (async function () {
       let data = await fetch(apiUrl).then(res => res.json())
-      updateFetchData(data)
+      updateFetchedData(data)
     })()
   }, [apiUrl])
 
@@ -34,7 +32,7 @@ function App() {
         Rick & Morty <span className="text-primary">Wiki</span>
       </h1>
 
-      <Search setSearch={setSearch}/>
+      <Search setPageNumber={setPageNumber} setSearch={setSearch}/>
 
       <div className="container">
         {/* In bootstrap there are 12 columns inside a row */}
@@ -55,7 +53,7 @@ function App() {
         </div>
       </div>
 
-      <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber} pages={pages} />
+      <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber} />
     </div>
   );
 }
