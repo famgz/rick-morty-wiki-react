@@ -5,15 +5,18 @@ import "bootstrap/dist/js/bootstrap"
 import Filters from "./components/Filters/Filters";
 import Cards from "./components/Cards/Cards";
 import Pagination from './components/Pagination/Pagination';
+import Search from './components/Search/Search';
 
 function App() {
 
-  let [pageNumber, setPageNumber] = useState(41)  // (1) is the default value
+  let [pageNumber, setPageNumber] = useState(1)  // (1) is the default value
+  let [search, setSearch] = useState('')
   let [fetchData, updateFetchData] = useState([])
   let { info, results } = fetchData // Destructure
-  let { count, pages, next, prev } = info
+  // let { count, pages, next, prev } = info
+  let pages = 42
 
-  let apiUrl = `https://rickandmortyapi.com/api/character?page=${pageNumber}`
+  let apiUrl = `https://rickandmortyapi.com/api/character?page=${pageNumber}&name=${search}`
 
   useEffect(() => {
     // IIFE -> Immediately Invoked Function Expression
@@ -31,8 +34,10 @@ function App() {
         Rick & Morty <span className="text-primary">Wiki</span>
       </h1>
 
-      {/* In bootstrap there are 12 columns inside a row */}
+      <Search setSearch={setSearch}/>
+
       <div className="container">
+        {/* In bootstrap there are 12 columns inside a row */}
         <div className="row">
 
           {/* Filter tab */}
@@ -50,7 +55,7 @@ function App() {
         </div>
       </div>
 
-      <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber} pages={pages}/>
+      <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber} pages={pages} />
     </div>
   );
 }

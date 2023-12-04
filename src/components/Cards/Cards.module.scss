@@ -1,8 +1,12 @@
 .cards {
     border: 2px solid #0b5ed7;
     border-radius: 10px;
-    overflow: hidden;
     box-sizing: border-box;
+    box-shadow: 1px 3px 9px #0000003a;
+    
+    &, & img {
+        overflow: hidden;
+    }
 }
 
 .badge {

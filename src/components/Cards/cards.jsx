@@ -4,8 +4,6 @@ import styles from './Cards.module.scss'
 
 const Cards = ({ results }) => {
 
-    let display
-
     // Badge color
     let badgeColor = (status) => {
         switch (status) {
@@ -37,7 +35,7 @@ const Cards = ({ results }) => {
                             <div className="fs-4 fw-bold mb-2">{name}</div>
                             <div className="">
                                 <div className="fs-6">Last location</div>
-                                <div className="fs-5 text-truncate">{location.name}</div>
+                                <div className="fs-5 ">{location.name}</div>
                             </div>
                         </div>
                     </div>
