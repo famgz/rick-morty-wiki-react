@@ -15,13 +15,13 @@ const Filters = ({ setPageNumber, setStatus, setSpecies, setGender, setType }) =
 
     return (
         <div className='col-3'>
-            <div className='text-center fw-bold fs-4 mb-2'>Filter</div>
+            <div className='text-center fs-4 mb-2'><h4>Filter Characters</h4></div>
             <div
                 onClick={clear}
                 style={{ cursor: 'pointer' }}
-                className='text-center text-primary text-decoration-underline'
+                className='text-center text-primary text-decoration-underline mb-3'
             >
-                Clear Filters
+                Clear Selection
             </div>
 
             <div className='accordion' id='accordionExample'>
