@@ -8,7 +8,28 @@ import Pagination from './components/Pagination/Pagination';
 import Search from './components/Search/Search';
 import Navbar from './components/Navbar/Navbar';
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Episodes from './Pages/Episodes';
+import Locations from './Pages/Locations';
+
 function App() {
+    return (
+        <Router>
+            <div className='App'>
+                <Navbar />
+            </div>
+            <Routes>
+                <Route path='/' element={<Home/>} />
+                <Route path='/episodes' element={<Episodes/>} />
+                <Route path='/locations' element={<Locations/>} />
+            </Routes>
+        </Router>
+    );
+}
+
+
+// function App() {  // before Route
+const Home = () => {
     let [pageNumber, setPageNumber] = useState(1); // (1) is the default value
     let [search, setSearch] = useState('');
     let [status, setStatus] = useState('');
@@ -31,16 +52,13 @@ function App() {
         // IIFE -> Immediately Invoked Function Expression
         (async function () {
             let data = await fetch(apiUrl).then((res) => res.json());
-            console.log(data)
+            console.log(data);
             updateFetchedData(data);
         })();
     }, [apiUrl]);
 
     return (
         <div className='App'>
-
-            <Navbar />
-
             <Search setPageNumber={setPageNumber} setSearch={setSearch} />
 
             <div className='container'>
@@ -71,6 +89,6 @@ function App() {
             />
         </div>
     );
-}
+};
 
 export default App;
