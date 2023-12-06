@@ -1,52 +1,41 @@
-import React from 'react'
-import styles from './Cards.module.scss'
-
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './Cards.module.scss';
+import CardStatusBadge from './CardStatusBadge';
 
 const Cards = ({ results }) => {
-
-    // Badge color
-    let badgeColor = (status) => {
-        switch (status) {
-            case 'Alive':
-                return 'bg-success'
-            case 'Dead':
-                return 'bg-danger'
-            default:
-                return 'bg-secondary'
-        }
-    }
-
     if (!results) {
-        return (
-            <>No characters found :('</>
-        )
+        return <>No characters found :( '</>;
     }
 
-    return (
-        results.map(item => {
-            let { id, name, image, location, status } = item
-            return (
-                <div key={id} className="d-flex col-4 mb-4 position-relative">
-                    <div className={`${styles.cards} d-flex flex-column`}>
-                        {/* Image */}
-                        <img src={image} alt="" className="img-fluid" />
-                        {/* Info */}
-                        <div className="content p-2 d-flex flex-column flex-grow-1 justify-content-between">
-                            <div className="fs-4 fw-bold mb-2">{name}</div>
-                            <div className="">
-                                <div className="fs-6">Last location</div>
-                                <div className="fs-5 ">{location.name}</div>
-                            </div>
+    return results.map((item) => {
+        let { id, name, image, location, status } = item;
+
+        return (
+            <Link
+                to={`/character/${id}`}
+                key={id}
+                className={`${styles['cards-wrapper']} d-flex mb-4 text-dark`}
+            >
+                <div className={`${styles.card} d-flex flex-column position-relative`}>
+                    {/* Image */}
+                    <img src={image} alt='' className='img-fluid' />
+
+                    {/* Info */}
+                    <div className='content p-2 d-flex flex-column flex-grow-1 justify-content-between'>
+                        <div className='fs-4 fw-bold mb-2'>{name}</div>
+                        <div className=''>
+                            <div className='fs-6'>Last location</div>
+                            <div className='fs-5 '>{location.name}</div>
                         </div>
                     </div>
-                    {/* Badge */}
-                    <div className={`badge ${badgeColor(status)} position-absolute ${styles.badge}`}>
-                        {status}
-                    </div>
-                </div>
-            )
-        })
-    )
-}
 
-export default Cards
+                    <CardStatusBadge status={status}/>
+
+                </div>
+            </Link>
+        );
+    });
+};
+
+export default Cards;
