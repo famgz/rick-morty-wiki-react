@@ -35,7 +35,7 @@ const Locations = () => {
                 </h1>
                 <h5 className='text-center'>{`${type} - ${dimension}`}</h5>
             </div>
-            <div className='row'>
+            <div className='row justify-content-between'>
                 <div className='col-3'>
                     <h4 className='text-center mb-4'>Pick Locations</h4>
                     <InputGroup prefix='Location' total={126} setId={setId} />

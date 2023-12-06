@@ -38,7 +38,7 @@ const Episodes = () => {
                     Air Date: {air_date ? air_date : 'Unknown'}
                 </h5>
             </div>
-            <div className='row'>
+            <div className='row justify-content-between'>
                 <div className='col-3'>
                     <h4 className='text-center mb-4'>Pick Episodes</h4>
                     <InputGroup prefix='Episode' total={51} setId={setId}/>

@@ -1,12 +1,14 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import '../../App.css'
+import RamapiLogo from '../../assets/RamapiLogo';
+import '../../App.css';
 
 const Navbar = () => {
     return (
-        <nav className='navbar navbar-expand-lg navbar-light bg-light mb-4'>
-            <div className='container'>
-                <Link to='/' className='fs-3 fw-bold ubuntu navbar-brand'>
+        <nav className='navbar navbar-expand-lg ubuntu navbar-light bg-light mb-5'>
+            <div className='container gap-4'>
+                <RamapiLogo fill='black' />
+                <Link to='/' className='fs-3 fw-bold navbar-brand'>
                     Rick & Morty <span className='text-primary'>Wiki</span>
                 </Link>
                 <button

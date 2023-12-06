@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
 import Filters from '../components/Filters/Filters';
@@ -38,11 +37,12 @@ const Home = () => {
 
     return (
         <div className='App'>
+            <h1 className="text-center mb-4">Characters</h1>
             <Search setPageNumber={setPageNumber} setSearch={setSearch} />
 
             <div className='container'>
                 {/* In bootstrap there are 12 columns inside a row */}
-                <div className='row'>
+                <div className='row justify-content-between'>
                     {/* Filter tab */}
                     <Filters
                         setPageNumber={setPageNumber}
