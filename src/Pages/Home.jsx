@@ -6,7 +6,6 @@ import Cards from '../components/Cards/Cards';
 import Pagination from '../components/Pagination/Pagination';
 import Search from '../components/Search/Search';
 
-
 const Home = () => {
     let [pageNumber, setPageNumber] = useState(1); // (1) = default value
     let [search, setSearch] = useState('');
@@ -36,28 +35,24 @@ const Home = () => {
     }, [apiUrl]);
 
     return (
-        <div className='App'>
-            <h1 className="text-center mb-4">Characters</h1>
+        <div className='container_'>
+            <h1 className='text-center'>Characters</h1>
             <Search setPageNumber={setPageNumber} setSearch={setSearch} />
 
-            <div className='container'>
+            <div className='content'>
                 {/* In bootstrap there are 12 columns inside a row */}
-                <div className='row justify-content-between'>
-                    {/* Filter tab */}
-                    <Filters
-                        setPageNumber={setPageNumber}
-                        setStatus={setStatus}
-                        setSpecies={setSpecies}
-                        setGender={setGender}
-                        setType={setType}
-                    />
+                {/* Filter tab */}
+                <Filters
+                    setPageNumber={setPageNumber}
+                    setStatus={setStatus}
+                    setSpecies={setSpecies}
+                    setGender={setGender}
+                    setType={setType}
+                />
 
-                    {/* Cards grid */}
-                    <div className='col-8'>
-                        <div className='row'>
-                            <Cards results={results} />
-                        </div>
-                    </div>
+                {/* Cards grid */}
+                <div className='cards-wrapper'>
+                    <Cards results={results} />
                 </div>
             </div>
 

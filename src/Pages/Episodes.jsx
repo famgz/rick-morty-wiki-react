@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Cards from '../components/Cards/Cards';
 import InputGroup from '../components/Filters/Category/InputGroup';
 
-
 // TODO: refactor to fetch api/episode once and build make changes from it
 
 const Episodes = () => {
@@ -26,27 +25,22 @@ const Episodes = () => {
     }, [apiUrl]);
 
     return (
-        <div className='container'>
-            <div className='row mb-4'>
-                <h1 className='text-center mb-4'>
-                    {'Episode: '}
-                    <span className='text-primary'>
-                        {name ? name : 'Unknown'}
-                    </span>
-                </h1>
-                <h5 className='text-center'>
-                    Air Date: {air_date ? air_date : 'Unknown'}
-                </h5>
-            </div>
-            <div className='row justify-content-between'>
-                <div className='col-3'>
+        <div className='container_'>
+            <h1 className='text-center'>
+                {'Episode: '}
+                <span className='text-primary'>{name ? name : 'Unknown'}</span>
+            </h1>
+            <h5 className='text-center'>
+                Air Date: {air_date ? air_date : 'Unknown'}
+            </h5>
+            <div className='content'>
+                <div className='filter-wrapper'>
                     <h4 className='text-center mb-4'>Pick Episodes</h4>
-                    <InputGroup prefix='Episode' total={51} setId={setId}/>
+                    <InputGroup prefix='Episode' total={51} setId={setId} />
                 </div>
-                <div className='col-8'>
-                    <div className='row'>
-                        <Cards results={results} />
-                    </div>
+                {/* Cards grid */}
+                <div className='cards-wrapper'>
+                    <Cards results={results} />
                 </div>
             </div>
         </div>

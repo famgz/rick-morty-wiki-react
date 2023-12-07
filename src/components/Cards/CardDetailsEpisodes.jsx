@@ -16,7 +16,7 @@ const CardDetailsEpisodes = ({ episode }) => {
             class='accordion mt-4'
             id='accordionExample'
             style={{
-                'min-width': '300px',
+                minWidth: '300px',
             }}
         >
             <div className='accordion-item'>
@@ -41,8 +41,8 @@ const CardDetailsEpisodes = ({ episode }) => {
                     <div
                         className='accordion-body'
                         style={{
-                            'max-height': '300px',
-                            'overflow': 'auto',
+                            maxHeight: '300px',
+                            overflow: 'auto',
                         }}
                     >
                         {eps}

@@ -12,12 +12,12 @@ const badgeColor = (status) => {
     }
 };
 
-const CardStatusBadge = ({status}) => {
+const CardStatusBadge = ({ status }) => {
     return (
         <div
-            className={`badge ${badgeColor(status)} position-absolute ${
+            className={`badge ${badgeColor(status)} ${
                 styles.badge
-            }`}
+            } position-absolute `}
         >
             {status}
         </div>

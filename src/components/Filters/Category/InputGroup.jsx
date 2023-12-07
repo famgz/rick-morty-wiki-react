@@ -2,7 +2,7 @@ import React from 'react';
 
 const InputGroup = ({ total, prefix, setId }) => {
     return (
-        <div className='input-group mb-3'>
+        <div className='input-group mb-3 filter-wrapper'>
             <select
                 className='form-select'
                 id={prefix}

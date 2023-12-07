@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import './Cards.module.scss';
 import styles from './Cards.module.scss';
 import CardStatusBadge from './CardStatusBadge';
 import CardDetailsEpisodes from './CardDetailsEpisodes';
@@ -30,13 +31,15 @@ const CardDetails = () => {
     }, [apiUrl]);
 
     return (
-        <div className='container d-flex flex-column'>
-            <div class='row gap-lg-5 align-content-center justify-content-center text-center'>
+        <div className='container'>
+            <div class='d-flex flex-column gap-5 align-content-center justify-content-center text-center'>
                 <h1>
                     Name: <span className='text-primary'>{name}</span>
                 </h1>
                 {/* Title Character Name */}
-                <div className='d-flex justify-content-center gap-5'>
+                <div
+                    className={`${styles['info-wrapper']} d-flex justify-content-center`}
+                >
                     {/* Basic Info */}
                     <div
                         className={`${styles['card-detail-info']} p-3 text-start`}
@@ -63,7 +66,7 @@ const CardDetails = () => {
                             <img
                                 src={image}
                                 alt={`Character ${name}`}
-                                className='rounded'
+                                className='rounded img-fluid'
                             />
                             <CardStatusBadge status={status} />
                         </div>

@@ -12,9 +12,7 @@ import CardDetails from './components/Cards/CardDetails';
 function App() {
     return (
         <Router>
-            <div className='App'>
-                <Navbar />
-            </div>
+            <Navbar />
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/episodes' element={<Episodes />} />

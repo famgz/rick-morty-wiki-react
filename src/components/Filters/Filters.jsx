@@ -14,7 +14,7 @@ const Filters = ({ setPageNumber, setStatus, setSpecies, setGender, setType }) =
     };
 
     return (
-        <div className='col-3'>
+        <div className='filter-wrapper d-flex flex-column'>
             <div className='text-center fs-4 mb-2'><h4>Filter Characters</h4></div>
             <div
                 onClick={clear}
